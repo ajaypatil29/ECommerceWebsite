@@ -58,5 +58,9 @@ namespace ECommerceWebsite.Repository
             }
             return result;
         }
+        /*public int GetUserByEmail(User user )
+        {
+            
+        }*/
     }
 }

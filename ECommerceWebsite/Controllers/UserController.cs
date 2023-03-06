@@ -130,7 +130,7 @@ namespace ECommerceWebsite.Controllers
                     {
                         if ((l.Email == user.Email) && (l.Password == user.Password))
                         {
-                            return RedirectToAction(nameof(Create));
+                            return RedirectToAction(nameof(ProductCatController.Index));
                         }
                     }
                    
