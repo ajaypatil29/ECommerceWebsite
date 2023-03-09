@@ -11,11 +11,13 @@ namespace ECommerceWebsite.Controllers
         private readonly IProductService prodservice;
         private readonly IProductCatService catservice;
         private Microsoft.AspNetCore.Hosting.IWebHostEnvironment env;
+        //private IHttpContextAccessor httpContextAccessor;
         public ProductController(IProductService prodservice, IProductCatService catservice, Microsoft.AspNetCore.Hosting.IWebHostEnvironment env)
         {
             this.prodservice = prodservice;
             this.catservice = catservice;
             this.env = env;
+            
         }
 
         public ActionResult Index()
@@ -66,7 +68,8 @@ namespace ECommerceWebsite.Controllers
             var prod =prodservice.GetProductById(id);
             var categories=catservice.GetAllCat();
             ViewBag.Categories= categories;
-            HttpContext.Session.SetString("oldImageUrl",prod.ImageUrl); return View();
+            HttpContext.Session.SetString("oldImageUrl",prod.ImageUrl); 
+            return View(prod);
         }
 
         // POST: ProductController/Edit/5

@@ -29,6 +29,10 @@ namespace ECommerceWebsite.Service
         {
             return repo.GetUserById(id);
         }
+        public User GetUserByEmail(string email)
+        {
+            return repo.GetUserByEmail(email);
+        }
 
         public int UpdateUser(User user)
         {

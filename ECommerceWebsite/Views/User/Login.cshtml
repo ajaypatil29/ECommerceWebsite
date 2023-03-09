@@ -23,6 +23,14 @@
     @Html.ActionLink("Create", "Create") |
    
 </div>
+            <div class="form-group">
+               <p>
+                    @if (!string.IsNullOrEmpty(ViewBag.errormassage))
+                    {
+                        @ViewBag.errormassage;
+                    }
+                </p>
+            </div>
 </form>
     </div>
     </div>

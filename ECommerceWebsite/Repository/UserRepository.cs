@@ -40,6 +40,11 @@ namespace ECommerceWebsite.Repository
             var user = db.Users.Where(x => x.Id == id).FirstOrDefault();
             return user;
         }
+        public User GetUserByEmail(string email)
+        {
+            var user = db.Users.Where(x => x.Email == email).FirstOrDefault();
+            return user;
+        }
 
         public int UpdateUser(User user)
         {

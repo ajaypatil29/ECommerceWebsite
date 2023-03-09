@@ -106,7 +106,7 @@ namespace ECommerceWebsite.Controllers
         }
         public ActionResult Login()
         {
-           
+            
             return View();
         }
         [HttpPost]
@@ -114,28 +114,27 @@ namespace ECommerceWebsite.Controllers
 
         public ActionResult Login(User user)
         {
-            var list = service.GetAllUser();
+            User u = service.GetUserByEmail(user.Email);
             try
             {
-                foreach (var l in list)
+                if (u != null)
                 {
-                    if (l.RoleId == 1)
+                    if(u.Password==user.Password)
                     {
-                        if ((l.Email == user.Email) && (l.Password == user.Password))
+                        if(u.RoleId==1)
                         {
                             return RedirectToAction(nameof(Index));
+                        }
+                        else
+                        {
+                            return RedirectToAction("Index","Product");
                         }
                     }
                     else
                     {
-                        if ((l.Email == user.Email) && (l.Password == user.Password))
-                        {
-                            return RedirectToAction(nameof(ProductCatController.Index));
-                        }
+                        ViewBag.errormassage = "Username or Password is incorrect";
+                        return View();
                     }
-                   
-                    
-                        
                 }
             }
             catch

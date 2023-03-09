@@ -47,7 +47,7 @@ namespace ECommerceWebsite.Repository
         {
             int result = 0;
             var p = db.products.Where(x => x.ProductId == prod.ProductId).FirstOrDefault();
-            if (prod != null)
+            if (p != null)
             {
                 p.ProductName=prod.ProductName;
                 p.Price=prod.Price; 

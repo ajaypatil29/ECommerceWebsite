@@ -6,8 +6,10 @@ namespace ECommerceWebsite.Service
     {
         IEnumerable<User> GetAllUser();
         User GetUserById(int id);
+      
         int AddUser(User user);
         int UpdateUser(User user);
         int DeleteUser(int id);
+        User GetUserByEmail(string? email);
     }
 }

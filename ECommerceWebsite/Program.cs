@@ -29,6 +29,7 @@ internal class Program
         builder.Services.AddSession(options =>
         {
             options.Cookie.IsEssential = true;
+            options.IdleTimeout = TimeSpan.FromMinutes(20);
             
 
         });
@@ -48,7 +49,7 @@ internal class Program
 
         app.UseHttpsRedirection();
         app.UseStaticFiles();
-
+        app.UseSession();
         app.UseRouting();
 
         app.UseAuthentication();

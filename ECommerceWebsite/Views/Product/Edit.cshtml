@@ -10,8 +10,13 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form asp-action="Edit" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ProductId" class="control-label"></label>
+                <input asp-for="ProductId" class="form-control" readonly/>
+                
+            </div>
             <div class="form-group">
                 <label asp-for="ProductName" class="control-label"></label>
                 <input asp-for="ProductName" class="form-control" />
@@ -29,7 +34,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="CatId" class="control-label"></label>
-                <select class="form-control" asp-for="CatId" asp-items="@(new SelectList(@ViewBag.Catagories,"CatId","CatName"))"></select>
+                <select class="form-control" asp-for="CatId" asp-items="@(new SelectList(@ViewBag.Categories,"CatId","CatName"))"></select>
                 <div class="form-group mb-3">
                     <span asp-validation-for="CatId" class="text-danger"></span>
                 </div>
