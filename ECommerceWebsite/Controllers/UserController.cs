@@ -123,7 +123,7 @@ namespace ECommerceWebsite.Controllers
                     {
                         if(u.RoleId==1)
                         {
-                            return RedirectToAction(nameof(Index));
+                            return RedirectToAction("Index","UserProduct");
                         }
                         else
                         {

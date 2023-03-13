@@ -12,6 +12,8 @@ namespace ECommerceWebsite.Service
         }
         public int AddUser(User user)
         {
+            user.RoleId = 1;
+            user.IsActive = 1;
             return repo.AddUser(user);
         }
 
@@ -36,6 +38,8 @@ namespace ECommerceWebsite.Service
 
         public int UpdateUser(User user)
         {
+            user.RoleId = 1;
+            user.IsActive = 1;
             return repo.UpdateUser(user);
         }
     }

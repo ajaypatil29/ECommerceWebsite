@@ -20,9 +20,10 @@ namespace ECommerceWebsite.Models
         [Required]
         public string? Contact { get; set; }
         [Required]
-
+        
         public int RoleId { get; set; }
         [Required]
+      
         public int IsActive { get; set; }
 
     }
