@@ -22,6 +22,8 @@ namespace ECommerceWebsite.Controllers
 
         public ActionResult Index()
         {
+            var catlist = catservice.GetAllCat();
+            ViewBag.Catlist = catlist;
             return View(prodservice.GetAllProduct());
         }
 

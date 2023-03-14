@@ -111,6 +111,7 @@ namespace ECommerceWebsite.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+      
 
         public ActionResult Login(User user)
         {
@@ -121,8 +122,11 @@ namespace ECommerceWebsite.Controllers
                 {
                     if(u.Password==user.Password)
                     {
-                        if(u.RoleId==1)
+                        HttpContext.Session.SetString("RoleId", u.RoleId.ToString());
+                        HttpContext.Session.SetString("UserId", u.Id.ToString());
+                        if (u.RoleId==1)
                         {
+                           
                             return RedirectToAction("Index","UserProduct");
                         }
                         else
@@ -144,6 +148,11 @@ namespace ECommerceWebsite.Controllers
             return View();
             
             
+        }
+        public ActionResult LogOut()
+        {
+            HttpContext.Session.Clear();
+            return View("Login");
         }
     }
 }

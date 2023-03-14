@@ -4,68 +4,42 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table" bordered-table >
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ProductName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ImageUrl)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CatId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Discount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Discription)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Stock)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProductName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                    <img src="@Url.Content(item.ImageUrl)" class="card-img-top">
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CatId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Discount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Discription)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Stock)
-            </td>
-          @*  <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>*@
-        </tr>
-}
-    </tbody>
-</table>
+<div class="container">
+    <div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3 col-sm-6 col-xs-12">
+
+         <div id="card" class="card">
+            <img src="@Url.Content(item.ImageUrl)" class="card-img-top" alt="..." height="150px" width="150px"/>
+            <div class="card-body">
+                        <h5 class="card-title">@item.ProductName
+                            <br /><p>@item.Price &#x20b9</p>
+                        </h5>
+                
+                <p class="card-text">@item.Discription</p>
+
+                
+               
+            </div>
+                    <div class="card-footer">
+                        @if (item.Stock > 0)
+                        {
+                            <b>Available</b>
+                        }
+                        
+                        else
+                        {
+                            <b>Out of Stock</b>
+                        }
+                        <span style="float:right" ><a href="#" class="btn btn-primary btn-sm"  >View Product</a></span>
+                    </div>
+                   
+         </div>
+        </div>
+    }
+    </div>
+</div>
+
+     

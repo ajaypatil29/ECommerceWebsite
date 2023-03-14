@@ -25,6 +25,9 @@
                 @Html.DisplayNameFor(model => model.CatId)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.CatName)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Discount)
             </th>
             <th>
@@ -46,11 +49,14 @@
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
-               <img src="@Url.Content(item.ImageUrl)" class="card-img-top" >
+               <img src="@Url.Content(item.ImageUrl)" class="card-img-top" height="100px" width="100px" >
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CatId)
             </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CatName)
+                </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Discount)
             </td>
